@@ -1,0 +1,88 @@
+"use client";
+
+import { useState } from "react";
+import { ArrowRight, Eye, MessageCircle, Zap, Bell, Users, Lock } from "lucide-react";
+import { TensolLogo, XIcon, LinkedInIcon } from "@/components/icons";
+
+function Navbar() {
+  const [showSolutions, setShowSolutions] = useState(false);
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+        <a href="/" className="flex items-center gap-2"><TensolLogo size={24} /></a>
+        <div className="hidden md:flex items-center gap-1">
+          <div className="relative" onMouseEnter={() => setShowSolutions(true)} onMouseLeave={() => setShowSolutions(false)}>
+            <button className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md inline-flex items-center gap-1">Solutions<svg className={`w-3.5 h-3.5 transition-transform ${showSolutions ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg></button>
+            {showSolutions && (
+              <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-xl shadow-lg py-2 z-50">
+                <a href="/solutions/engineering" className="block px-5 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">For Engineering</a>
+                <a href="/solutions/sales" className="block px-5 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">For Sales</a>
+                <a href="/solutions/marketing" className="block px-5 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">For Marketing</a>
+              </div>
+            )}
+          </div>
+          <a href="/#features" className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md">Features</a>
+        </div>
+        <div className="flex items-center gap-3">
+          <a href="/sign-in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Sign in</a>
+          <a href="/sign-up" className="inline-flex items-center px-4 py-2 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors">Get a Demo</a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export default function EmployeesPage() {
+  const employees = [
+    { icon: <Eye className="w-6 h-6" />, title: "Engineering AI", desc: "Monitors Sentry errors, correlates with Linear tickets, tracks deployments, and surfaces relevant context when customers report bugs.", link: "/solutions/engineering" },
+    { icon: <MessageCircle className="w-6 h-6" />, title: "Sales AI", desc: "Auto-logs calls to HubSpot, updates deal stages, drafts follow-up emails, and prepares context briefs before every call.", link: "/solutions/sales" },
+    { icon: <Zap className="w-6 h-6" />, title: "Marketing AI", desc: "Drafts LinkedIn posts, manages X presence, responds to comments, tracks engagement metrics, and maintains a consistent posting schedule.", link: "/solutions/marketing" },
+    { icon: <Bell className="w-6 h-6" />, title: "Support AI", desc: "Monitors customer channels, triages incoming issues, surfaces relevant context, and drafts responses for your review." },
+    { icon: <Users className="w-6 h-6" />, title: "Onboarding AI", desc: "Answers new hire questions instantly with full context from Slack, docs, and past decisions. No more interrupting senior engineers." },
+    { icon: <Lock className="w-6 h-6" />, title: "Custom AI", desc: "Build your own AI employee for any workflow. Define what it watches, how it responds, and who it reports to." },
+  ];
+  return (
+    <main className="min-h-screen">
+      <Navbar />
+      <section className="pt-28 pb-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs uppercase tracking-wider text-accent font-semibold mb-4">AI EMPLOYEES</p>
+          <h1 className="text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight mb-4 text-foreground">A teammate for every team</h1>
+          <p className="text-lg text-muted-foreground mb-12 max-w-2xl leading-relaxed">Not chatbots. Proactive AI employees that live in your tools, watch everything, and act on your behalf 24/7.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {employees.map((e) => (
+              <div key={e.title} className="p-6 rounded-2xl bg-card border border-border">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4">{e.icon}</div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{e.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{e.desc}</p>
+                {e.link && <a href={e.link} className="inline-flex items-center gap-1 text-sm text-accent font-medium hover:underline">Learn more <ArrowRight className="w-3.5 h-3.5" /></a>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-secondary/30">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">Hire your first AI employee</h2>
+          <p className="text-muted-foreground mb-8">Free 3-day trial. Setup takes 5 minutes. No credit card required.</p>
+          <a href="/sign-up" className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors">Start Free Trial <ArrowRight className="w-4 h-4" /></a>
+        </div>
+      </section>
+
+      <footer className="py-12 px-6 border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div className="col-span-2 md:col-span-2"><TensolLogo size={28} className="text-foreground mb-4" /></div>
+            <div><h4 className="text-sm font-semibold text-foreground mb-3">Product</h4><ul className="space-y-2"><li><a href="/employees" className="text-sm text-muted-foreground hover:text-foreground transition-colors">AI Employees</a></li><li><a href="/use-cases" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Use Cases</a></li><li><a href="/integrations" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Integrations</a></li></ul></div>
+            <div><h4 className="text-sm font-semibold text-foreground mb-3">Legal</h4><ul className="space-y-2"><li><a href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy</a></li><li><a href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms</a></li><li><a href="/security-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Security</a></li></ul></div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border gap-4">
+            <p className="text-sm text-muted-foreground">&copy; 2025 Tensol. All rights reserved.</p>
+            <div className="flex items-center gap-4"><a href="https://x.com/tensolai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><XIcon size={18} /></a><a href="https://linkedin.com/company/tensol" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><LinkedInIcon size={18} /></a></div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
+}
