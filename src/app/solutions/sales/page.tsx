@@ -154,7 +154,7 @@ export default function SalesPage() {
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border gap-4">
             <p className="text-sm text-muted-foreground">© 2025 Tensol. All rights reserved.</p>
-            <div className="flex items-center gap-4"><a href="https://x.com/tensolai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><XIcon size={18} /></a><a href="https://linkedin.com/company/tensol" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><LinkedInIcon size={18} /></a></div>
+            <div className="flex items-center gap-4"><a href="https://x.com/tensol_ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><XIcon size={18} /></a><a href="https://www.linkedin.com/company/tensolai/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><LinkedInIcon size={18} /></a></div>
           </div>
         </div>
       </footer>
