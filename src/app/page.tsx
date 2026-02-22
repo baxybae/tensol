@@ -12,6 +12,7 @@ export default function Home() {
       <ProblemSection />
       <SolutionSection />
       <WhatIsSection />
+      <SeeItInAction />
       <FeaturesSection />
       <UseCasesSection />
       <IntegrationsSection />
@@ -643,8 +644,9 @@ function IntegrationsSection() {
     <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">Integrations</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Connects to everything you use</p>
+          <p className="text-xs uppercase tracking-wider text-accent font-semibold mb-4">INTEGRATIONS</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">Connects to everything you use</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Your AI employee gets read and write access to the tools your team already uses. One-click OAuth setup, no coding required.</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {integrations.map((ig) => (
@@ -841,12 +843,12 @@ function CTASection() {
     <section className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-6">Your team&apos;s context, always on</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">Stop losing context to busywork. Your AI employees monitor, connect, and act on your team&apos;s behalf - so you can focus on building what matters.</p>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">Stop losing context. Stop repeating yourself. Stop drowning in busywork. Hire an AI employee that knows everything your team knows and works 24/7.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <a href="/sign-up" className="inline-flex items-center px-8 py-3.5 bg-foreground text-background text-base font-medium rounded-md hover:bg-foreground/90 transition-colors">Start for Free</a>
           <a href="/sign-up" className="inline-flex items-center px-8 py-3.5 border border-border text-foreground text-base font-medium rounded-md hover:bg-secondary transition-colors">Get a Demo</a>
         </div>
-        <p className="text-sm text-muted-foreground">Setup in 5 minutes. No credit card required.</p>
+        <p className="text-sm text-muted-foreground">Setup in 5 minutes. Talk to us via WhatsApp, Slack, or Telegram.</p>
       </div>
     </section>
   );
